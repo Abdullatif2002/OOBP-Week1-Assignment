@@ -4,7 +4,16 @@ which takes two numbers and an operator as arguments, and returns the result of 
 For example calculator(1, 2, "+") should return 3.
 */
 function calculator(num1, num2, operator) {
-  /* Your code goes here */
+  if (operator==="+") {
+    return num1 + num2;
+  } else if (operator==="-") {
+    return num1 - num2;
+  } else if (operator==="*") {
+    return num1 * num2;
+  } else if (operator==="/") {
+    return num1/num2;
+  }
+ 
 }
 
 /* Task 2 - Write a function, which creates objects describing a person.
@@ -26,8 +35,17 @@ The function should return an object with the following properties:
   }
 */
 function createPerson(name, surname, age) {
-  /* Your code goes here */
+  const person = {
+    name: name,
+    surname: surname, 
+    age: age,
+    fullName: name + " " + surname,
+    isAdult: age >= 18,
+
+  };
+  return person;
 }
+
 
 /*
 Task 3 - Write a function, which takes an object as a parameter. The object given as a parameter should have the following properties:
@@ -45,7 +63,13 @@ if the person is not an adult.
 Notice that <name>, <surname> and <age> fields should be replaced with the actual values from the object.
 */
 function personToString(person) {
-  /* Your code goes here */
+  if(person.isAdult){
+    return "The person " + person.name + ", " + person.surname + " is " + person.age + " years old, and is an adult";
+  } 
+  else {
+    return "The person " + person.name + ", " + person.surname + " is " + person.age + " years old, and is an minor";
+}
+
 }
 
 /* Task 4 - Write a function, which takes an object as a parameter. 
@@ -60,28 +84,34 @@ function personToString(person) {
     "<name> has a population of <population>"
 */
 function cityNameAndPopulationToString(city) {
-  /* Your code goes here */
+  return city.name + " has a population of " + city.population;
 }
 
 /* Task 5 - Write a function, which takes the same kind of object as parameter as the function in Task 4.
    The function should return boolan value true if the city is a capital, false otherwise.
 */
 function isCapital(city) {
-  /* Your code goes here */
+  return city.isCapital; 
 }
 
 /* Task 6 - Write a function, which takes the same kind of object as parameter as the function in Task 4.
    The function should return the name of the country the city is located in.
 */
 function getCountryName(city) {
-  /* Your code goes here */
+  return city.country;
 }
 
 /* Task 7 - Write a function, which takes two parameters. Both parameters are of the same city object type as the function in Task 4.
    The function should return the city with the larger population.
 */
 function getLargerPopulation(city1, city2) {
-  /* Your code goes here */
+  if(city1.population > city2.population){
+    return city1;
+  }
+  else {
+    return city2;
+ 
+}
 }
 
 /* Task 8 - Write a function, which takes the same parameters as the function in Task 7.
@@ -89,8 +119,14 @@ function getLargerPopulation(city1, city2) {
    "<name of the city with larger population> has larger population than <name of the city with smaller population>"
 */
 function getLargerPopulationString(city1, city2) {
-  /* Your code goes here */
+  if(city1.population > city2.population){
+    return city1.name + " has larger population than " + city2.name;
+  }
+  else {
+    return city2.name + " has larger population than " + city1.name;
 }
+}
+
 
 /* Export all the functions you have written above. 
    The export is used to make the functions available to the tests. With this same logic, you 
